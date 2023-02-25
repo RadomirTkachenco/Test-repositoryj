@@ -1,0 +1,32 @@
+class Grandparents():
+    age = 150
+    height = 169
+    iq = 135
+    adequacy = 60
+
+
+class Parents(Grandparents):
+    age = 50
+    iq = 85
+
+
+
+class Child(Parents):
+    height = 180
+    depression = 10
+
+
+class GrandChild(Child):
+    iq = 170
+    age = 30
+    height = 150
+    mood = 99
+
+
+def __init__(self):
+    print(self.GrandChild.age)
+    print(self.GrandChild.iq)
+    print(self.GrandChild.height)
+    print(self.GrandChild.mood)
+
+Joe = GrandChild()
