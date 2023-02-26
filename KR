@@ -1,0 +1,41 @@
+import requests
+from bs4 import BeautifulSoup
+import lxml
+
+url = "https://itesco.cz/"
+
+agent = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"}
+
+
+response = requests.get(url, headers=agent)
+
+sout = BeautifulSoup(response.text, "lxml")
+
+all_product = sout.find('div', class_= 'category.product-list--page.product-list--current-page')
+
+product_s = sout.find('div', class_= 'category.product-list--page.product-list--current-page')
+
+product_cost = sout.find('div', class_= 'category.product-list--page.product-list--current-page')
+
+print(all_product)
+list_product = all_product.find_all('div', class_= "catalog-grid__cell catalog-grid__cell_type_slim ng-star-inserted")
+print(list_product[0].text)
+print(all_product)
+list_product1 = all_product.find_all('div', class_= "styles__StyledVerticalTileWrapper")
+print(list_product1[0].text)
+print(all_product)
+list_product2 = all_product.find_all('div', class_= "styled__StyledHeading")
+print(list_product2[0].text)
+
+
+for elem in list_product:
+    title = elem.find('span', class_='div')
+    print(title.text)
+
+for elem in list_product1:
+    title = elem.find('span', class_='div')
+    print(title.text)
+
+for elem in list_product2:
+        title = elem.find('span', class_='div')
+    print(title.text)
